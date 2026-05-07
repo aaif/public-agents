@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
     inputs:
       model:
-        description: 'GitHub Models model ID (e.g. openai/gpt-4o-mini)'
+        description: 'GitHub Models model ID'
         required: true
-        default: 'openai/gpt-4o-mini'
+        default: 'azure-openai/gpt-4o-mini'
         type: choice
         options:
-          - openai/gpt-4o-mini
-          - openai/gpt-4o
-          - openai/gpt-4.1
-          - meta/llama-3-70b-instruct
-          - mistral-ai/mistral-small
+          - azure-openai/gpt-4o-mini
+          - azure-openai/gpt-4o
+          - azure-openai/gpt-4.1
+          - azureml-meta/Llama-3-3-70B-Instruct
+          - azureml-mistral/mistral-small-2503
 
 permissions:
   models: read
@@ -28,15 +28,21 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MODEL: ${{ inputs.model }}
         run: |
-          RESPONSE=$(curl -s \
+          HTTP_CODE=$(curl -s -o /tmp/response.json -w "%{http_code}" \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Content-Type: application/json" \
             -d "{\"model\": \"$MODEL\", \"messages\": [{\"role\": \"user\", \"content\": \"Say hello world!\"}]}" \
             https://models.github.ai/inference/chat/completions)
 
+          RESPONSE=$(cat /tmp/response.json)
+
+          echo "HTTP status: $HTTP_CODE"
+          echo ""
           echo "Raw response:"
           echo "$RESPONSE"
 
           echo ""
           echo "Model output:"
           echo "$RESPONSE" | jq -r '.choices[0].message.content'
+
+          [ "$HTTP_CODE" = "200" ] || exit 1
