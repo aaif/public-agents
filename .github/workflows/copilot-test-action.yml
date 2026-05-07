@@ -37,13 +37,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MODEL: ${{ inputs.model }}
+          OWNER: ${{ github.repository_owner }}
         run: |
           echo "Using model: $MODEL"
+          echo "Org: $OWNER"
           HTTP_CODE=$(curl -s -o /tmp/response.json -w "%{http_code}" \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Content-Type: application/json" \
             -d "{\"model\": \"$MODEL\", \"messages\": [{\"role\": \"user\", \"content\": \"Say hello world!\"}]}" \
-            https://models.github.ai/inference/chat/completions)
+            "https://models.github.ai/orgs/$OWNER/inference/chat/completions")
 
           RESPONSE=$(cat /tmp/response.json)
 
