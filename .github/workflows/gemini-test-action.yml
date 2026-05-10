@@ -1,0 +1,45 @@
+name: gemini-test-action
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 'Gemini model ID (e.g. gemini-2.5-flash, gemini-2.5-pro)'
+        required: true
+        default: 'gemini-2.5-flash'
+        type: string
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Gemini API
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MODEL: ${{ inputs.model }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "Error: GEMINI_API_KEY secret is not set. See README.md for setup instructions."
+            exit 1
+          fi
+
+          echo "Using model: $MODEL"
+
+          HTTP_CODE=$(curl -s -o /tmp/response.json -w "%{http_code}" \
+            -H "Content-Type: application/json" \
+            -H "x-goog-api-key: $GEMINI_API_KEY" \
+            -d '{"contents": [{"parts": [{"text": "Say hello world!"}]}]}' \
+            "https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent")
+
+          RESPONSE=$(cat /tmp/response.json)
+
+          echo "HTTP status: $HTTP_CODE"
+          echo ""
+          echo "Raw response:"
+          echo "$RESPONSE"
+
+          echo ""
+          echo "Model output:"
+          echo "$RESPONSE" | jq -r '.candidates[0].content.parts[0].text'
+
+          [ "$HTTP_CODE" = "200" ] || exit 1
