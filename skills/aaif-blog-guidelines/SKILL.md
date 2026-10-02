@@ -5,16 +5,16 @@ metadata:
   author: Angie Jones
   organization: AAIF
   source: https://github.com/aaif/foundation/blob/main/policies-guidelines/blog-guidelines.md
-  version: "1.0"
+  version: "1.1"
 ---
 
-# AAIF Blog Guidelines
+# AAIF blog guidelines
 
 Use this skill whenever helping a contributor create, review, or submit content for the Agentic AI Foundation blog on **aaif.io**. The goal is to make the post relevant, vendor-neutral, narrative, submission-ready, and easy for the Linux Foundation/AAIF team to triage.
 
 Official submission form: <https://form.asana.com/?k=Bq-lRvAXGzHQIXH_etPOxA&d=9283783873717>
 
-## What AAIF Publishes
+## What AAIF publishes
 
 AAIF blog content should educate, inform, or advance the agentic AI community. Strong fits include:
 
@@ -24,7 +24,7 @@ AAIF blog content should educate, inform, or advance the agentic AI community. S
 - Thought leadership on agentic AI trends, interoperability, open standards, and ecosystem development
 - Community milestones, contributor spotlights, working group updates, event recaps, and hackathon learnings
 
-## Contributor Fit
+## Contributor fit
 
 Eligible contributors include member companies, AAIF project maintainers/contributors, Working Groups, the Technical Committee, community contributors, and AAIF event/program participants.
 
@@ -32,7 +32,7 @@ Member company posts must be vendor-neutral. They may include only one or two cl
 
 Community contributors may submit up to two posts per month.
 
-## Agent Workflow
+## Agent workflow
 
 When assisting a contributor:
 
@@ -41,10 +41,11 @@ When assisting a contributor:
 3. **Shape the post** — use a narrative structure, not a press release or marketing one-pager.
 4. **Enforce neutrality** — remove sales language, vendor-heavy framing, unsupported superiority claims, and language that benefits one AAIF community member over others.
 5. **Strengthen utility** — add technical detail, examples, lessons learned, takeaways, or ecosystem context.
-6. **Prepare submission package** — final draft, suggested title, author name(s), bio(s), headshot/logo, social copy, hashtags, and preferred publish date.
-7. **Set expectations** — publication is not guaranteed; plan for about a 2-week lead time after approval, with longer timelines around major events.
+6. **Check editorial consistency** — use US English, sentence case for the blog title and section headings, and official styling for project and technology names. Qualify unsupported absolute or categorical claims and support factual and technical claims with primary sources where practical.
+7. **Prepare submission package** — final draft, suggested title, author name(s), bio(s), headshot/logo, social copy, hashtags, and preferred publish date.
+8. **Set expectations** — publication is not guaranteed; plan for about a 2-week lead time after approval, with longer timelines around major events.
 
-## Drafting Requirements
+## Drafting requirements
 
 A submission-ready AAIF blog post should be:
 
@@ -54,12 +55,17 @@ A submission-ready AAIF blog post should be:
 - Timely, generally reflecting recent work or announcements from the past two months
 - Vendor-neutral and aligned with AAIF’s mission
 - Clear, precise, technically useful, and educational
+- Written in US English
+- Written with sentence case for the blog title and section headings
+- Consistent with the official styling of project and technology names
+- Free of unsupported absolute or categorical claims; qualify claims where evidence, implementation, or circumstances may vary
+- Supported with primary sources for factual and technical claims where practical
 - Free of paid, sponsored, or promotional framing
-- Free of criticism or discouragement of adoption of any open source project
+- Free of criticism that discourages adoption of any open source project
 - Written in narrative format
 - Ideally 600–1,500 words, though technical deep-dives may be longer
 
-## Recommended Blog Structure
+## Recommended blog structure
 
 Use this structure unless the user has a better one:
 
@@ -72,7 +78,7 @@ Use this structure unless the user has a better one:
 7. **Takeaways / what’s next** — useful next steps for readers
 8. **Contributor close** — optional, restrained, and vendor-neutral
 
-## Submission Package Checklist
+## Submission package checklist
 
 Before directing the user to submit, confirm they have:
 
@@ -87,21 +93,22 @@ Before directing the user to submit, confirm they have:
 - [ ] Confirmation that technical/company/project review is complete
 - [ ] Confirmation that the content is original and unpublished
 
-## Red Flags to Fix
+## Red flags to fix
 
 Do not treat the post as ready if it contains:
 
 - Press-release structure or generic announcement copy with little story value
 - Product pitch, lead generation framing, or excessive company mentions
 - Claims that one vendor, product, or approach is the clear winner without neutral framing
+- Unsupported absolute or categorical claims
 - Previously published content
 - Missing stakeholder approval
 - Time-sensitive announcement submitted too close to the requested publish date
 - Criticism that discourages adoption of an open source project
 
-## Process and Timelines
+## Process and timelines
 
-The AAIF/LF process is: content submitted → triaged → reviewed by LF marketing/communications → possibly legal-reviewed → returned for final submitter review → scheduled → amplified.
+The AAIF/LF process is: content submitted → triaged → reviewed by LF marketing/communications → possibly reviewed by legal → returned for final submitter review → scheduled → amplified.
 
 Typical timelines:
 
